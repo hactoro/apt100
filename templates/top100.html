@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"> -->
+    <style>
+
+        .mystyle table {
+            font-size: 11pt; 
+            font-family: Arial;
+            border-collapse: collapse; 
+            border: 1px solid silver;
+            text-align: center;
+            position: relative;
+            left: 0px;
+
+        }
+        .mystyle th{
+            text-align: center;
+        }
+
+        .mystyle td, th {
+            padding: 5px;
+        }
+
+        .mystyle tr:nth-child(even) {
+            background: #E0E0E0;
+        }
+
+        .mystyle tr:hover {
+            background: silver;
+            cursor: pointer;
+        }
+
+
+
+        
+    </style>
+
+    <title>Hello World Template</title>
+
+
+</head>
+<body>
+
+    <input id="csrf_token" hidden value="{% crsf_token%}" >
+    <div style="
+                width: 100%;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;">
+        <h3 style="display:block;font-size: xx-large;">부동산 하락 순위 100</h3>
+
+        <div
+            style="display:flex;
+                   flex-direction: column;
+                   justify-content: center;
+                   justify-items: center;">
+            <table>
+                <colgroup>
+                    <col style="width:100px">
+                    <col style="width:130px">
+                    <col style="width:100px">
+                    <col style="width:130px">
+                    <col style="width:100px">
+                    <col style="width:130px">
+                    <col style="width:*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>시도</th>
+                        <td>
+                            <select style="width:100%">
+                                <option>서울특별시</option>
+                                <option>대구광역시</option>
+                            </select>
+                        </td>
+                        <th>지역</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <th>지역</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>지역</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <th>지역</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <th>지역</th>
+                        <td>
+                            <input type="text">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td colspan="2">
+                            <button 
+                                    id="search"
+                                    type="button"
+                                    style="float: right;">조회</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+   
+        </div>
+
+
+        <div id="dispResult" class="mystyle" style="overflow: scroll;">
+            <!-- {{ table_data | safe }} -->
+        </div>
+    </div>
+
+    
+
+    <!-- datatables JS -->
+    <!-- <script type="text/javascript"src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            $('#table_example').DataTable();
+        } );
+    </script> -->
+
+
+
+</body>
+
+<script>
+    $(document).ready(function(){
+
+        $("#search").on("click", function(){
+
+
+            alert($("#crsf_token").val());
+            // var csrftoken = $('[name=csrfmiddlewaretoken]').val();
+
+            // $.ajax({
+            //     url: '/myapp/getApt100',
+            //     type: 'post',
+            //     header: {'X-CSRFToken': csrftoken}, 
+            //     success: function(response){
+            //         $("#dispResult").html(response.table_data);
+            //     },
+            // })
+        })
+    })
+</script>
+</html>
